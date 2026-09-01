@@ -1,4 +1,6 @@
-# TaxisBase
+## Welcome to TaxisBase 👋
+
+[![TaxisDB](assets/taxisdb_taxisbase.jpg)](https://taxisdb.com/docs/taxis-base-the-database-of-taxis-db/)
 
 TaxisBase is the foundational semantic model of [TaxisDB](https://taxisdb.com), a metamodel-driven, reflective, temporal, immutable, fact-oriented database engine built on YottaDB.
 
