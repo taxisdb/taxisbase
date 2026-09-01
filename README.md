@@ -1,6 +1,6 @@
 # TaxisBase
 
-TaxisBase is the foundational semantic model of TaxisDB, a metamodel-driven, reflective, temporal, immutable, fact-oriented database engine built on YottaDB.
+TaxisBase is the foundational semantic model of [TaxisDB](https://taxisdb.com), a metamodel-driven, reflective, temporal, immutable, fact-oriented database engine built on YottaDB.
 
 It provides the vocabulary and semantics for representing entities, attributes, types, values, relationships, assertions, retractions, identity, constraints, and history as data.
 
@@ -904,44 +904,6 @@ obj.tom_hanks
 
 The stored value is represented through its attribute-specific value key, while the dictionary resolves that key to the corresponding literal.
 
-## Architecture in One View
-
-```mermaid
-flowchart TB
-    App["Application"]
-
-    subgraph Taxis["TaxisBase / TaxisDB"]
-        Model["Metamodel<br/>types · attributes · value types"]
-        Semantic["Semantic engine<br/>facts · identity · constraints"]
-        Temporal["Temporal model<br/>assertions · retractions · transactions"]
-        Reflection["Reflection<br/>keys · namespaces · metadata"]
-        Stage["Stage"]
-        Transact["Transact"]
-    end
-
-    subgraph Regions["YottaDB regions"]
-        TBox["TBox"]
-        ABox["ABox"]
-        TX["Transactions"]
-    end
-
-    App --> Model
-    App --> Semantic
-    App --> Stage
-
-    Model --> Reflection
-    Semantic --> Temporal
-    Stage --> Transact
-
-    Transact --> TBox
-    Transact --> ABox
-    Transact --> TX
-
-    ABox -. valkeys .-> TBox
-    TBox --> TX
-    ABox --> TX
-```
-
 ## Design Principles
 
 TaxisBase is built around several principles:
@@ -961,19 +923,15 @@ TaxisBase is built around several principles:
 13. Human-readable keys coexist with internal entity identifiers.
 14. YottaDB provides the transactional substrate without defining the higher-level semantics.
 
-## TaxisBase in a Sentence
 
+## Learn More
 TaxisBase is a reflective semantic layer for building temporal, immutable, fact-oriented databases where the model, the data, the identities, and the history are all represented through the same underlying assertion machinery.
 
-## Project
+TaxisBase is the semantic foundation of TaxisDB. The complete documentation covers its metamodel-driven architecture, TBox and ABox model, EAV representation, value types, attributes, constraints, namespaces, identity resolution, objects, associations, and API usage.
 
-[![GitHub](https://img.shields.io/badge/GitHub-TaxisDB-181717?logo=github)](https://github.com/taxisdb/taxisdb)
+Read the full documentation:
 
-<a href="https://github.com/taxisdb/taxisdb">
-  <button class="btn btn-primary">
-    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="20" height="20" alt="GitHub">
-    TaxisDB GitHub Project
-  </button>
-</a>
+<a href="https://taxisdb.com/docs/taxis-base-the-database-of-taxis-db/"> <button class="btn btn-primary"> TaxisBase Documentation </button> </a>
 
-I would use this as the landing-page version, while keeping the deeper sections you supplied as the technical architecture/documentation chapters. The README then explains the model quickly, while the detailed sections can establish the implementation-level claims.
+
+
